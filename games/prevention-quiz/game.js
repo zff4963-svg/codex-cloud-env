@@ -106,15 +106,24 @@
               (saved.bestAccuracy != null ? " · " + saved.bestAccuracy + "%" : "")
             : "";
       }
-      if (G.grantCompletionReward) {
-        G.grantCompletionReward(GAME_ID, {
-          score: score,
-          maxScore: questions.length,
-          accuracy: questions.length ? score / questions.length : 0,
-          reviewMode: reviewMode,
-          major: "prevention"
-        });
+      var rewardOpts = {
+        score: score,
+        maxScore: questions.length,
+        accuracy: questions.length ? score / questions.length : 0,
+        reviewMode: reviewMode,
+        major: "prevention"
+      };
+      var reward = null;
+      try {
+        if (window.XinghuoReward && typeof window.XinghuoReward.grantGameComplete === "function") {
+          reward = window.XinghuoReward.grantGameComplete(GAME_ID, rewardOpts);
+        } else if (G.grantCompletionReward) {
+          reward = G.grantCompletionReward(GAME_ID, rewardOpts);
+        }
+      } catch (rewardErr) {
+        reward = null;
       }
+      if (G.paintXpLine) G.paintXpLine(document.getElementById("xpMsg"), reward);
     }
 
     if (reviewEl && G && G.renderReviewList) {

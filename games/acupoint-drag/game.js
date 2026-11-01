@@ -264,16 +264,30 @@
         bestMsg.textContent =
           saved.bestScore != null ? "本机最高分：" + saved.bestScore : "";
       }
-      if (G.grantCompletionReward) {
-        var maxS = Math.max(score, 1);
-        G.grantCompletionReward(GAME_ID, {
-          score: score,
-          maxScore: maxS,
-          accuracy: sessionWrong.length === 0 ? 1 : 0.7,
-          reviewMode: reviewMode,
-          major: "acupuncture"
-        });
+      var maxS = 0;
+      var si;
+      for (si = 0; si < rounds.length; si++) {
+        maxS += (rounds[si].slots && rounds[si].slots.length) || 0;
       }
+      if (!maxS) maxS = Math.max(score, 1);
+      var rewardOpts = {
+        score: score,
+        maxScore: maxS,
+        accuracy: maxS ? score / maxS : 0,
+        reviewMode: reviewMode,
+        major: "acupuncture"
+      };
+      var reward = null;
+      try {
+        if (window.XinghuoReward && typeof window.XinghuoReward.grantGameComplete === "function") {
+          reward = window.XinghuoReward.grantGameComplete(GAME_ID, rewardOpts);
+        } else if (G.grantCompletionReward) {
+          reward = G.grantCompletionReward(GAME_ID, rewardOpts);
+        }
+      } catch (rewardErr) {
+        reward = null;
+      }
+      if (G.paintXpLine) G.paintXpLine(document.getElementById("xpMsg"), reward);
     }
 
     if (reviewEl && G && G.renderReviewList) {

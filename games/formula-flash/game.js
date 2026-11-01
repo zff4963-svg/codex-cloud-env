@@ -99,16 +99,25 @@
             ? "本机最佳「记得」：" + saved.bestScore
             : "";
       }
-      if (G.grantCompletionReward) {
-        var total = cards.length || 1;
-        G.grantCompletionReward(GAME_ID, {
-          score: scores.know,
-          maxScore: total,
-          accuracy: scores.know / total,
-          reviewMode: reviewMode,
-          major: "tcm"
-        });
+      var total = cards.length || 1;
+      var rewardOpts = {
+        score: scores.know,
+        maxScore: total,
+        accuracy: scores.know / total,
+        reviewMode: reviewMode,
+        major: "tcm"
+      };
+      var reward = null;
+      try {
+        if (window.XinghuoReward && typeof window.XinghuoReward.grantGameComplete === "function") {
+          reward = window.XinghuoReward.grantGameComplete(GAME_ID, rewardOpts);
+        } else if (G.grantCompletionReward) {
+          reward = G.grantCompletionReward(GAME_ID, rewardOpts);
+        }
+      } catch (rewardErr) {
+        reward = null;
       }
+      if (G.paintXpLine) G.paintXpLine(document.getElementById("xpMsg"), reward);
     }
 
     if (reviewEl && G && G.renderReviewList) {

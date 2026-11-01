@@ -28,7 +28,7 @@
 2. **学**：闪卡 / 选择题 / 拖拽等「刻意练习」入口
 3. **玩**：同一知识点的游戏化关卡（现有四游戏或预防 MCQ）
 
-完成「玩」或「学」关卡后，由 `XinghuoReward.grantGameComplete` 发奖；浏览「教」可记一次轻量 `grantTeachView`（可选，防刷：每模块每日最多计 1 次）。
+完成「玩」或「学」关卡后，由 `XinghuoReward.grantGameComplete` 发奖（只在清台 / 整局结束时调用，做题中途不发）。结算面板另写一行「本局 +N XP」，toast 仍由奖励组件弹出。浏览「教」并标记已读可记一次轻量 `grantTeachView`（每模块每日最多 1 次）。专业取值：`acupuncture`、`tcm`、`clinical`、`prevention`（中西医结合模块用 `markMajorVisit("integrated")` 记到访）。
 
 ---
 
@@ -125,7 +125,9 @@ celebrate(message)
 listBadges()
 ```
 
-`games-kit.js` 提供薄封装 `XinghuoGames.grantCompletionReward(...)`，在各游戏 `finish` 中于 `saveProgress` 之后调用。
+`games-kit.js` 提供薄封装 `XinghuoGames.grantCompletionReward(...)`。各游戏在 `finish` / `finishAll` 里于 `saveProgress` 之后直接调用 `window.XinghuoReward.grantGameComplete(gameId, opts)`，并用返回值填写结算面板的 XP 行。枢纽页用 `loadState` / `getLevel` / `todayKey` 渲染奖励摘要芯片（等级称号、XP、连胜、今日目标）。
+
+升级或连胜延续时，toast 加上 `is-level` / `is-streak` / `is-celebrate`。样式为纸色底、玉色 `#79c7b8`、青色 `#174f51`，并遵守 `prefers-reduced-motion`。
 
 ---
 
@@ -144,3 +146,4 @@ listBadges()
 | 日期（Asia/Shanghai） | 说明 |
 |----------------------|------|
 | 2026-11-02 | 初版：XP / 连胜 / 等级 / 徽章 / 每日目标 / 教学玩 / 禁则 |
+| 2026-11-02 | 通关面板展示本局 XP；枢纽奖励摘要芯片；每专业补第二模块占位页；庆祝 toast 使用纸感玉色样式 |
