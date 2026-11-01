@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="星火学院专业游戏枢纽 — 中医 / 针推 / 临床 / 预防 / 中西医结合 · 教·学·玩 · 健康奖励" />
+  <title>专业游戏枢纽 · 星火学院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="stylesheet" href="games.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="glow glow-b" aria-hidden="true"></div>
+  <div class="spot" id="spot" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-text">星火学院</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="主导航">
+        <a href="../learning/index.html">学习中心</a>
+        <a href="../acupuncture/index.html">针灸专区</a>
+        <a href="../medai/index.html">医疗AI</a>
+        <a href="../courseware/index.html">课件馆</a>
+        <a href="./index.html">记忆游戏</a>
+        <a href="../about/index.html">关于</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="切换深浅色主题" title="切换主题">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+        </button>
+        <button type="button" class="burger" id="burger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section">
+      <div class="container">
+        <p class="kicker reveal">MAJORS HUB · 专业游戏枢纽</p>
+        <h1 class="hero-title reveal">有教有学有玩，按专业选关。</h1>
+        <p class="hero-sub reveal">
+          覆盖中医学、针灸推拿、临床医学、预防医学、中西医结合。每模块「教 → 学 → 玩」；
+          XP / 连胜 / 徽章鼓励每日回来一点点——没有开箱赌博，不锁教学内容。教学占位，非诊疗建议。
+        </p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary" href="#majors">选择专业</a>
+          <a class="btn btn-ghost" href="#games">直接进游戏</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="game-disclaimer reveal">教学占位 · 非诊疗建议 · 进度保存在本机 localStorage · 详见 docs/engagement-reward.md</div>
+        <div id="rewardHud" class="reveal"></div>
+      </div>
+    </section>
+
+    <section class="section overview" id="majors">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">五专业轨道</p>
+          <h2 class="section-title">选专业 → 进模块 → 教·学·玩</h2>
+          <p class="section-desc">卡片链到示例模块页；更多课程地图见 docs/curriculum-game-map.md。</p>
+        </div>
+
+        <div class="majors-tabs reveal" role="tablist" aria-label="专业切换">
+          <button type="button" class="majors-tab is-active" role="tab" aria-selected="true" data-major="tcm">中医学</button>
+          <button type="button" class="majors-tab" role="tab" aria-selected="false" data-major="acupuncture">针灸推拿</button>
+          <button type="button" class="majors-tab" role="tab" aria-selected="false" data-major="clinical">临床医学</button>
+          <button type="button" class="majors-tab" role="tab" aria-selected="false" data-major="prevention">预防医学</button>
+          <button type="button" class="majors-tab" role="tab" aria-selected="false" data-major="integrated">中西医结合</button>
+        </div>
+
+        <div class="majors-panel reveal" data-panel="tcm" role="tabpanel">
+          <div class="majors-grid">
+            <article class="card">
+              <p class="card-kicker">P0 · 方药</p>
+              <h3>方剂学入门</h3>
+              <p>证↔方对照、组方原则要点；接方剂闪卡。</p>
+              <a class="card-link" href="tracks/tcm/fangji/index.html">打开教·学·玩 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">关联游戏</p>
+              <h3>方剂闪卡测验</h3>
+              <p>中药 / 方剂自评记忆。</p>
+              <a class="card-link" href="formula-flash/index.html">直接开玩 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">占位</p>
+              <h3>中基 / 中诊（后续）</h3>
+              <p>课程地图已列 P0；模块页可按 tracks/tcm/ 扩展。</p>
+              <a class="card-link" href="../docs/curriculum-game-map.md">查看课程地图 →</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="majors-panel reveal" data-panel="acupuncture" role="tabpanel" hidden>
+          <div class="majors-grid">
+            <article class="card">
+              <p class="card-kicker">P0 · 经络腧穴</p>
+              <h3>经络腧穴模块</h3>
+              <p>经脉归属、定位关键词；接配对与拖拽。</p>
+              <a class="card-link" href="tracks/acupuncture/jingluo/index.html">打开教·学·玩 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">游戏</p>
+              <h3>经络翻卡配对</h3>
+              <p>穴名与定位 / 经脉配对。</p>
+              <a class="card-link" href="meridian-match/index.html">开始配对 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">游戏</p>
+              <h3>取穴拖拽填空</h3>
+              <p>标签拖进定位槽位。</p>
+              <a class="card-link" href="acupoint-drag/index.html">开始拖拽 →</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="majors-panel reveal" data-panel="clinical" role="tabpanel" hidden>
+          <div class="majors-grid">
+            <article class="card">
+              <p class="card-kicker">P0 · 西医基础</p>
+              <h3>系统解剖与生理</h3>
+              <p>形态—功能对照；接选择题闯关。</p>
+              <a class="card-link" href="tracks/clinical/anatomy/index.html">打开教·学·玩 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">游戏</p>
+              <h3>解剖生理闯关</h3>
+              <p>西医基础 MCQ 即时反馈。</p>
+              <a class="card-link" href="anatomy-quiz/index.html">开始闯关 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">占位</p>
+              <h3>诊断学 / 内科（后续）</h3>
+              <p>病例选择题优先；见课程地图模块 G。</p>
+              <a class="card-link" href="../docs/curriculum-game-map.md">查看课程地图 →</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="majors-panel reveal" data-panel="prevention" role="tabpanel" hidden>
+          <div class="majors-grid">
+            <article class="card">
+              <p class="card-kicker">P0 · 方法学</p>
+              <h3>流行病学入门</h3>
+              <p>指标、设计、偏倚；接预防医学测验。</p>
+              <a class="card-link" href="tracks/prevention/epidemiology/index.html">打开教·学·玩 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">新游戏</p>
+              <h3>预防医学闯关</h3>
+              <p>流病 / 卫统 / 三卫 / 健教等 12 题。</p>
+              <a class="card-link" href="prevention-quiz/index.html">开始闯关 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">地图</p>
+              <h3>环境·营养·职业等</h3>
+              <p>模块 J 已列 P0/P1 与游戏类型。</p>
+              <a class="card-link" href="../docs/curriculum-game-map.md">查看第 8 节 →</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="majors-panel reveal" data-panel="integrated" role="tabpanel" hidden>
+          <div class="majors-grid">
+            <article class="card">
+              <p class="card-kicker">P0 · 对照</p>
+              <h3>结合内科入门</h3>
+              <p>同病异轨：辨病与辨证对照记忆。</p>
+              <a class="card-link" href="tracks/integrated/neike/index.html">打开教·学·玩 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">中轨</p>
+              <h3>方剂闪卡</h3>
+              <p>证方记忆底座。</p>
+              <a class="card-link" href="formula-flash/index.html">打开闪卡 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">西轨</p>
+              <h3>解剖生理闯关</h3>
+              <p>生物医学词汇底座。</p>
+              <a class="card-link" href="anatomy-quiz/index.html">打开闯关 →</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section overview" id="games">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">全部小游戏</p>
+          <h2 class="section-title">五款关卡，开一把。</h2>
+          <p class="section-desc">最高分与错题在本机；通关自动发 XP。需静态服务器加载 JSON。</p>
+        </div>
+
+        <div class="bento-games">
+          <article class="card reveal" data-game-id="meridian-match">
+            <p class="card-kicker">穴位 / 经络</p>
+            <h3>经络翻卡配对</h3>
+            <p>翻开两张卡，穴名与定位/经脉配对。</p>
+            <div class="card-meta"><strong>配对</strong> · <span class="best-meta" data-best>—</span></div>
+            <a class="card-link" href="meridian-match/index.html">开始配对 →</a>
+          </article>
+
+          <article class="card reveal" data-game-id="formula-flash">
+            <p class="card-kicker">中药 / 方剂</p>
+            <h3>方剂闪卡测验</h3>
+            <p>自评「记得 / 模糊 / 忘了」。</p>
+            <div class="card-meta"><strong>闪卡</strong> · <span class="best-meta" data-best>—</span></div>
+            <a class="card-link" href="formula-flash/index.html">打开闪卡 →</a>
+          </article>
+
+          <article class="card reveal" data-game-id="anatomy-quiz">
+            <p class="card-kicker">解剖 / 生理</p>
+            <h3>解剖生理闯关</h3>
+            <p>西医基础选择题闯关。</p>
+            <div class="card-meta"><strong>MCQ</strong> · <span class="best-meta" data-best>—</span></div>
+            <a class="card-link" href="anatomy-quiz/index.html">开始闯关 →</a>
+          </article>
+
+          <article class="card reveal" data-game-id="acupoint-drag">
+            <p class="card-kicker">针灸取穴</p>
+            <h3>取穴拖拽填空</h3>
+            <p>标签拖进对应定位槽位。</p>
+            <div class="card-meta"><strong>拖拽</strong> · <span class="best-meta" data-best>—</span></div>
+            <a class="card-link" href="acupoint-drag/index.html">开始拖拽 →</a>
+          </article>
+
+          <article class="card reveal" data-game-id="prevention-quiz">
+            <p class="card-kicker">预防医学</p>
+            <h3>预防医学闯关</h3>
+            <p>流病卫统与公卫要点 MCQ。</p>
+            <div class="card-meta"><strong>12 题</strong> · <span class="best-meta" data-best>—</span></div>
+            <a class="card-link" href="prevention-quiz/index.html">开始闯关 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">徽章墙</p>
+          <h2 class="section-title">真实学习行为，不是抽卡。</h2>
+        </div>
+        <div id="badgeWall" class="badge-grid reveal"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 星火学院 · Xinghuo Academy</p>
+      <p class="footer-note">静态示例站点 · 占位内容 · 非医疗建议</p>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+  <script src="reward-kit.js"></script>
+  <script src="games-kit.js"></script>
+  <script>
+    (function () {
+      var R = window.XinghuoReward;
+      if (R) {
+        R.renderHud(document.getElementById("rewardHud"));
+        var wall = document.getElementById("badgeWall");
+        if (wall) {
+          R.listBadges().forEach(function (b) {
+            var el = document.createElement("div");
+            el.className = "badge-chip" + (b.owned ? " is-owned" : "");
+            el.innerHTML = "<strong>" + b.name + "</strong>" + b.desc + (b.owned ? " · 已点亮" : " · 未解锁");
+            wall.appendChild(el);
+          });
+        }
+      }
+
+      var tabs = document.querySelectorAll(".majors-tab");
+      var panels = document.querySelectorAll(".majors-panel");
+      tabs.forEach(function (tab) {
+        tab.addEventListener("click", function () {
+          var id = tab.getAttribute("data-major");
+          tabs.forEach(function (t) {
+            t.classList.toggle("is-active", t === tab);
+            t.setAttribute("aria-selected", t === tab ? "true" : "false");
+          });
+          panels.forEach(function (p) {
+            var show = p.getAttribute("data-panel") === id;
+            p.hidden = !show;
+          });
+          if (R) R.markMajorVisit(id);
+        });
+      });
+
+      if (!window.XinghuoGames) return;
+      document.querySelectorAll("[data-game-id]").forEach(function (card) {
+        var id = card.getAttribute("data-game-id");
+        var meta = card.querySelector("[data-best]");
+        if (!meta) return;
+        try {
+          var p = XinghuoGames.loadProgress(id);
+          var text = "尚无成绩";
+          if (id === "meridian-match" && p.bestMoves != null) {
+            text = "最佳 " + p.bestMoves + " 步";
+            if (p.bestTime != null) text += " / " + p.bestTime + "s";
+          } else if (id === "formula-flash" && p.bestScore != null) {
+            text = "最佳记得 " + p.bestScore;
+          } else if ((id === "anatomy-quiz" || id === "prevention-quiz") && p.bestScore != null) {
+            text = "最高分 " + p.bestScore;
+            if (p.bestAccuracy != null) text += " · " + p.bestAccuracy + "%";
+          } else if (id === "acupoint-drag" && p.bestScore != null) {
+            text = "最高分 " + p.bestScore;
+          }
+          meta.textContent = text;
+        } catch (e) {
+          meta.textContent = "—";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

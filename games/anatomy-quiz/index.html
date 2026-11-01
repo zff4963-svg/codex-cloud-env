@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="解剖生理闯关 — 西医基础选择题（教学占位）" />
+  <title>解剖生理闯关 · 星火学院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../games.css" />
+  <link rel="stylesheet" href="game.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="spot" id="spot" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="../../index.html">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-text">星火学院</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="主导航">
+        <a href="../../learning/index.html">学习中心</a>
+        <a href="../../acupuncture/index.html">针灸专区</a>
+        <a href="../../medai/index.html">医疗AI</a>
+        <a href="../../courseware/index.html">课件馆</a>
+        <a href="../index.html">记忆游戏</a>
+        <a href="../../about/index.html">关于</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="切换深浅色主题" title="切换主题">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+        </button>
+        <button type="button" class="burger" id="burger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top:40px;padding-bottom:72px">
+      <div class="container">
+        <nav class="crumb" aria-label="面包屑">
+          <a href="../../index.html">首页</a><span>/</span>
+          <a href="../index.html">记忆游戏</a><span>/</span>
+          <span>解剖生理闯关</span>
+        </nav>
+        <p class="kicker">ANATOMY QUIZ</p>
+        <h1 class="hero-title" style="font-size:clamp(1.8rem,4vw,2.6rem)">西医解剖 / 生理选择题闯关</h1>
+        <p class="hero-sub">逐题作答，即时反馈与简短解析。教学占位，非考试真题。</p>
+        <div class="game-disclaimer">教学占位，非诊疗建议 — 请以教材与课堂笔记为准。</div>
+
+        <div class="game-bar">
+          <div class="game-bar-stats">
+            <span>题目 <strong id="qnum">0</strong>/<span id="total">0</span></span>
+            <span>得分 <strong id="score">0</strong></span>
+            <span>正确率 <strong id="acc">—</strong></span>
+          </div>
+          <div class="game-bar-actions">
+            <button type="button" class="btn btn-ghost btn-sm" id="btnRestart">重新开始</button>
+            <a class="btn btn-ghost btn-sm" href="../index.html">返回游戏厅</a>
+          </div>
+        </div>
+        <div class="game-progress-bar" aria-hidden="true"><span id="progFill"></span></div>
+        <p class="game-kb-hint" id="kbHint">键盘：1–4 或 A–D 选题 · Enter 下一题 · Esc 无操作</p>
+
+        <div class="game-stage aq-stage">
+          <div id="quiz">
+            <h2 class="aq-prompt" id="prompt"></h2>
+            <div class="aq-choices" id="choices" role="group" aria-label="选项"></div>
+            <p class="aq-feedback" id="feedback" hidden></p>
+            <div class="aq-next-wrap">
+              <button type="button" class="btn btn-primary btn-sm" id="btnNext" hidden>下一题</button>
+            </div>
+          </div>
+          <div id="done" class="game-done" hidden>
+            <h2>闯关结束</h2>
+            <p id="doneMsg"></p>
+            <p class="game-best" id="bestMsg"></p>
+            <div id="review" class="game-review" hidden></div>
+            <div class="game-done-actions">
+              <button type="button" class="btn btn-ghost" id="btnReview" hidden>错题再练</button>
+              <button type="button" class="btn btn-primary" id="btnAgain">再闯一次</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="gameAnnounce" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 星火学院 · Xinghuo Academy</p>
+      <p class="footer-note">静态示例站点 · 占位内容 · 非医疗建议</p>
+    </div>
+  </footer>
+
+  <script src="../../main.js"></script>
+  <script src="../reward-kit.js"></script>
+  <script src="../games-kit.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>

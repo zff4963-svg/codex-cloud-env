@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="方剂学入门模块 — 教·学·玩模块（教学占位）" />
+  <title>方剂学入门模块 · 星火学院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../../styles.css" />
+  <link rel="stylesheet" href="../../../games.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="spot" id="spot" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="../../../../index.html">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-text">星火学院</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="主导航">
+        <a href="../../../../learning/index.html">学习中心</a>
+        <a href="../../../../acupuncture/index.html">针灸专区</a>
+        <a href="../../../../medai/index.html">医疗AI</a>
+        <a href="../../../../courseware/index.html">课件馆</a>
+        <a href="../../../index.html">记忆游戏</a>
+        <a href="../../../../about/index.html">关于</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="切换深浅色主题" title="切换主题">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+        </button>
+        <button type="button" class="burger" id="burger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top:40px;padding-bottom:72px">
+      <div class="container">
+        <nav class="crumb" aria-label="面包屑">
+          <a href="../../../../index.html">首页</a><span>/</span>
+          <a href="../../../index.html">专业游戏枢纽</a><span>/</span>
+          <span>中医学</span><span>/</span>
+          <span>方剂学</span>
+        </nav>
+        <p class="kicker">中医学 · 方药</p>
+        <h1 class="hero-title" style="font-size:clamp(1.8rem,4vw,2.6rem)">方剂学入门模块</h1>
+        <p class="hero-sub">有教有学有玩：先看要点，再刻意练习，最后用游戏巩固。教学占位，非诊疗建议。</p>
+        <div class="game-disclaimer">教学占位 · 非诊疗建议 · 请对照教材与带教核对。</div>
+        <div id="rewardHud"></div>
+
+        <div class="track-tlp">
+          <article class="track-panel" id="panel-teach">
+            <p class="card-kicker">教 · TEACH</p>
+            <h3>组方与证治记忆要点</h3>
+            <p>方剂学记忆可抓三条线：①组方原则（君为针对主病主证，臣佐使分工）；②方名—主治证候—核心药物；③同类方鉴别（如解表剂中麻黄汤与桂枝汤的侧重点差异）。先建立「证↔方」对照，再背歌诀更稳。本页为教学占位，非处方建议。</p>
+            <button type="button" class="btn btn-ghost btn-sm" id="btnTeachDone">我读完了（+XP）</button>
+          </article>
+          <article class="track-panel">
+            <p class="card-kicker">学 · LEARN</p>
+            <h3>闪卡刻意练习</h3>
+            <p>用方剂闪卡自评「记得 / 模糊 / 忘了」，把模糊与忘了的条目放进错题回顾。</p>
+            <a class="btn btn-primary btn-sm" href="../../../formula-flash/index.html">打开方剂闪卡 →</a>
+          </article>
+          <article class="track-panel">
+            <p class="card-kicker">玩 · PLAY</p>
+            <h3>游戏巩固</h3>
+            <p>同一批方药知识，用闪卡闯关换 XP 与连胜；完成可点亮「方药入门」徽章。</p>
+            <a class="btn btn-primary btn-sm" href="../../../formula-flash/index.html">去玩方剂闪卡 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 星火学院 · Xinghuo Academy</p>
+      <p class="footer-note">静态示例站点 · 占位内容 · 非医疗建议</p>
+    </div>
+  </footer>
+
+  <script src="../../../../main.js"></script>
+  <script src="../../../reward-kit.js"></script>
+  <script src="../../../games-kit.js"></script>
+  <script>
+    (function () {
+      var R = window.XinghuoReward;
+      if (!R) return;
+      R.markMajorVisit("tcm");
+      R.renderHud(document.getElementById("rewardHud"));
+      var btn = document.getElementById("btnTeachDone");
+      if (btn) {
+        btn.addEventListener("click", function () {
+          R.grantTeachView("tcm-fangji");
+          R.renderHud(document.getElementById("rewardHud"));
+          btn.disabled = true;
+          btn.textContent = "今日已记过要点";
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

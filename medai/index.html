@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="星火学院医疗AI — 工具与安全使用原则占位" />
+  <title>医疗AI · 星火学院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="glow glow-b" aria-hidden="true"></div>
+  <div class="spot" id="spot" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-text">星火学院</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="主导航">
+        <a href="../learning/index.html">学习中心</a>
+        <a href="../acupuncture/index.html">针灸专区</a>
+        <a href="./index.html">医疗AI</a>
+        <a href="../courseware/index.html">课件馆</a>
+        <a href="../games/index.html">记忆游戏</a>
+        <a href="../about/index.html">关于</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="切换深浅色主题" title="切换主题">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+        </button>
+        <button type="button" class="burger" id="burger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section">
+      <div class="container">
+        <p class="kicker reveal">MED AI · 医疗 + AI</p>
+        <h1 class="hero-title reveal">AI 可以帮忙，<br />但不替你承担判断。</h1>
+        <p class="hero-sub reveal">
+          提示词模板、文献整理与病例复盘助手——把工具用在学习现场，关键结论仍由你对照教材、指南与带教核对。
+        </p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary" href="#principles">阅读安全原则</a>
+          <a class="btn btn-ghost" href="../learning/index.html">返回学习中心</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section overview">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">工具占位</p>
+          <h2 class="section-title">从问题出发，再选工具。</h2>
+          <p class="section-desc">以下模块为教学占位，不提供在线诊疗或自动开方功能。</p>
+        </div>
+
+        <div class="bento">
+          <article class="card card-lg reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 20h8M12 18v2M7 10h2m3 0h2m3 0h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <p class="card-kicker">提示词</p>
+            <h3>学习场景提示词模板</h3>
+            <p>「写清问题—限定来源—要求核对清单」三段式模板，适用于经络笔记与文献摘要整理（占位）。</p>
+            <div class="card-meta"><strong>10</strong> 份模板（示例）</div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 19V5a2 2 0 012-2h8l6 6v10a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.6"/><path d="M14 3v5h5M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <p class="card-kicker">文献</p>
+            <h3>文献整理助手用法</h3>
+            <p>如何让模型输出「主张 / 证据等级 / 待核对页码」三栏，避免把摘要当成定论。</p>
+            <div class="card-meta">占位 · 工作流</div>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="card-kicker">复盘</p>
+            <h3>病例复盘时间线</h3>
+            <p>脱敏后的随访节点整理示例；强调删除可识别信息后再使用任何云端工具。</p>
+            <div class="card-meta">占位 · 复盘</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section principles" id="principles">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">安全使用原则</p>
+          <h2 class="section-title">问题、核对、边界。</h2>
+          <p class="section-desc">面向临床学习者的三条底线——写进每一次提示词之前。</p>
+        </div>
+        <ol class="steps">
+          <li class="card step reveal">
+            <span class="step-num">01</span>
+            <h3>从实际问题出发</h3>
+            <p>先写清要解决什么（如某证型取穴思路、哮喘随访要点），再选模板或工具；避免「先生成再找用途」。</p>
+          </li>
+          <li class="card step reveal">
+            <span class="step-num">02</span>
+            <h3>重要结果自己核对</h3>
+            <p>穴位定位、方药禁忌、指南条目与 AI 摘要，一律对照教材、指南或带教老师；模型输出只是起点。</p>
+          </li>
+          <li class="card step reveal">
+            <span class="step-num">03</span>
+            <h3>保护隐私与原创</h3>
+            <p>不上传可识别的患者信息；引用课件与笔记时注明出处，尊重同道作品与开源许可。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 星火学院 · Xinghuo Academy</p>
+      <p class="footer-note">静态示例站点 · 占位内容 · 非医疗建议</p>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>
