@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="中西医结合内科对照模块 — 教·学·玩模块（教学占位）" />
+  <title>中西医结合内科对照模块 · 星火学院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../../../styles.css" />
+  <link rel="stylesheet" href="../../../games.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="spot" id="spot" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="../../../../index.html">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-text">星火学院</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="主导航">
+        <a href="../../../../learning/index.html">学习中心</a>
+        <a href="../../../../acupuncture/index.html">针灸专区</a>
+        <a href="../../../../medai/index.html">医疗AI</a>
+        <a href="../../../../courseware/index.html">课件馆</a>
+        <a href="../../../index.html">记忆游戏</a>
+        <a href="../../../../about/index.html">关于</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="切换深浅色主题" title="切换主题">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+        </button>
+        <button type="button" class="burger" id="burger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" style="padding-top:40px;padding-bottom:72px">
+      <div class="container">
+        <nav class="crumb" aria-label="面包屑">
+          <a href="../../../../index.html">首页</a><span>/</span>
+          <a href="../../../index.html">专业游戏枢纽</a><span>/</span>
+          <span>中西医结合</span><span>/</span>
+          <span>结合内科入门</span>
+        </nav>
+        <p class="kicker">中西医结合 · 临床对照</p>
+        <h1 class="hero-title" style="font-size:clamp(1.8rem,4vw,2.6rem)">中西医结合内科对照模块</h1>
+        <p class="hero-sub">有教有学有玩：先看要点，再刻意练习，最后用游戏巩固。教学占位，非诊疗建议。</p>
+        <div class="game-disclaimer">教学占位 · 非诊疗建议 · 请对照教材与带教核对。</div>
+        <div id="rewardHud"></div>
+
+        <div class="track-tlp">
+          <article class="track-panel" id="panel-teach">
+            <p class="card-kicker">教 · TEACH</p>
+            <h3>同病异轨：辨病与辨证</h3>
+            <p>中西医结合记忆法：同一主诉先列西医定位/定性线索，再列中医八纲与脏腑证候要点，最后对照常用方药与西医处理原则的「分工」而非简单替代。避免把游戏分数当成处方依据。教学占位，非诊疗建议。</p>
+            <button type="button" class="btn btn-ghost btn-sm" id="btnTeachDone">我读完了（+XP）</button>
+          </article>
+          <article class="track-panel">
+            <p class="card-kicker">学 · LEARN</p>
+            <h3>双轨练习</h3>
+            <p>方药侧用闪卡记证方；西基侧用解剖生理选择题打底，便于读懂检查与病理名词。</p>
+            <a class="btn btn-primary btn-sm" href="../../../formula-flash/index.html">方剂闪卡（中）→</a>
+            <a class="btn btn-ghost btn-sm" href="../../../anatomy-quiz/index.html" style="margin-top:8px">西医选择题练习 →</a>
+          </article>
+          <article class="track-panel">
+            <p class="card-kicker">玩 · PLAY</p>
+            <h3>西基游戏</h3>
+            <p>用解剖生理闯关巩固生物医学词汇，完成同样计入 XP。</p>
+            <a class="btn btn-primary btn-sm" href="../../../anatomy-quiz/index.html">解剖生理闯关（西）→</a>
+          </article>
+        </div>
+        <p class="track-more">同专业下一模块：<a href="../waike/index.html">结合外科入门 →</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 星火学院 · Xinghuo Academy</p>
+      <p class="footer-note">静态示例站点 · 占位内容 · 非医疗建议</p>
+    </div>
+  </footer>
+
+  <script src="../../../../main.js"></script>
+  <script src="../../../reward-kit.js"></script>
+  <script src="../../../games-kit.js"></script>
+  <script>
+    (function () {
+      var R = window.XinghuoReward;
+      if (!R) return;
+      var MODULE_ID = "int-neike";
+      R.markMajorVisit("integrated");
+      R.renderHud(document.getElementById("rewardHud"));
+      var btn = document.getElementById("btnTeachDone");
+      if (!btn) return;
+      var state = R.loadState();
+      if (state.teachToday && state.teachToday[MODULE_ID]) {
+        btn.disabled = true;
+        btn.textContent = "今日已记过要点";
+        return;
+      }
+      btn.addEventListener("click", function () {
+        if (btn.disabled) return;
+        var res = R.grantTeachView(MODULE_ID);
+        R.renderHud(document.getElementById("rewardHud"));
+        btn.disabled = true;
+        btn.textContent = res && res.already ? "今日已记过要点" : "已记下要点 +5 XP";
+      });
+    })();
+  </script>
+</body>
+</html>

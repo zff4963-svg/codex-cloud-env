@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="星火学院学习中心 — 中医针灸、医疗AI与综合学习路径" />
+  <title>学习中心 · 星火学院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="glow glow-b" aria-hidden="true"></div>
+  <div class="spot" id="spot" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-text">星火学院</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="主导航">
+        <a href="./index.html">学习中心</a>
+        <a href="../acupuncture/index.html">针灸专区</a>
+        <a href="../medai/index.html">医疗AI</a>
+        <a href="../courseware/index.html">课件馆</a>
+        <a href="../games/index.html">记忆游戏</a>
+        <a href="../about/index.html">关于</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="切换深浅色主题" title="切换主题">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+        </button>
+        <button type="button" class="burger" id="burger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section">
+      <div class="container">
+        <p class="kicker reveal">LEARNING HUB · 学习中心</p>
+        <h1 class="hero-title reveal">一条地图，三条路径。</h1>
+        <p class="hero-sub reveal">
+          从中医针灸基础、医疗 AI 工具到综合自学闭环——按主题挑选课程与路径，把零散好奇收成可复查的笔记。
+        </p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary" href="../acupuncture/index.html">针灸专区</a>
+          <a class="btn btn-ghost" href="../medai/index.html">医疗 AI</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section overview">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">课程与路径</p>
+          <h2 class="section-title">先选方向，再落一笔笔记。</h2>
+          <p class="section-desc">以下为占位列表，后续可替换为真实课程与学习路径。</p>
+        </div>
+
+        <div class="bento">
+          <article class="card card-lg reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M12 2v20M8 6l4-4 4 4M5 14c2 3 5 5 7 6 2-1 5-3 7-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <p class="card-kicker">中医 / 针灸</p>
+            <h3>经络腧穴入门路径</h3>
+            <p>十二经脉走向示意、常用腧穴定位核对清单与刺灸手法笔记模板（教学占位，非诊疗建议）。</p>
+            <div class="card-meta"><strong>12</strong> 节 · 入门</div>
+            <a class="card-link" href="../acupuncture/index.html">打开针灸专区 →</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="M8 20h8M12 18v2M7 10h2m3 0h2m3 0h2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <p class="card-kicker">医疗 + AI</p>
+            <h3>安全使用清单</h3>
+            <p>提示词模板、文献摘要核对步骤与隐私红线——AI 帮忙，关键判断仍由你核对。</p>
+            <div class="card-meta"><strong>8</strong> 个模块</div>
+            <a class="card-link" href="../medai/index.html">进入医疗 AI →</a>
+          </article>
+
+          <article class="card reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 19V5a2 2 0 012-2h8l6 6v10a2 2 0 01-2 2H6a2 2 0 01-2-2z" stroke="currentColor" stroke-width="1.6"/><path d="M14 3v5h5M8 13h8M8 17h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <p class="card-kicker">综合学习</p>
+            <h3>提问—检索—笔记闭环</h3>
+            <p>从写清一个临床疑问开始，到检索、摘录与分享，形成可复查的学习习惯。</p>
+            <div class="card-meta"><strong>6</strong> 步路径</div>
+            <a class="card-link" href="../courseware/index.html">浏览课件馆 →</a>
+          </article>
+
+          <article class="card reveal">
+            <p class="card-kicker">专题</p>
+            <h3>哮喘相关辨证学习</h3>
+            <p>过敏与哮喘随访要点、取穴思路笔记框架（占位示例，须对照教材与带教）。</p>
+            <div class="card-meta">占位 · 进阶</div>
+            <a class="card-link" href="../acupuncture/index.html">查看相关卡片 →</a>
+          </article>
+
+          <article class="card reveal">
+            <p class="card-kicker">工具</p>
+            <h3>病例复盘助手用法</h3>
+            <p>如何用 AI 整理随访时间线，并逐条核对指南条目——工作坊提纲占位。</p>
+            <div class="card-meta">占位 · 工作坊</div>
+            <a class="card-link" href="../medai/index.html">了解原则 →</a>
+          </article>
+
+          <article class="card card-wide reveal">
+            <div class="card-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4zM8 6V4h8v2" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M8 11h8M8 15h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            </div>
+            <div class="card-wide-body">
+              <p class="card-kicker">课件回看</p>
+              <h3>讲座提纲与图谱示意</h3>
+              <p>穴位图谱示意、AI 工作坊幻灯片与课后二次整理清单——便于书桌与诊室之间切换。</p>
+            </div>
+            <div class="card-meta"><strong>36</strong> 套（示例）</div>
+            <a class="card-link" href="../courseware/index.html">进入课件馆 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 星火学院 · Xinghuo Academy</p>
+      <p class="footer-note">静态示例站点 · 占位内容 · 非医疗建议</p>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>

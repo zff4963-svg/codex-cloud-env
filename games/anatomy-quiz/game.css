@@ -1,0 +1,74 @@
+.aq-prompt {
+  font-size: 1.35rem;
+  margin-bottom: 20px;
+}
+
+.aq-choices {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.aq-choice {
+  appearance: none;
+  text-align: left;
+  padding: 14px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 0.98rem;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+  min-height: 48px;
+  touch-action: manipulation;
+}
+
+.aq-choice:hover:not(:disabled) {
+  border-color: var(--jade);
+}
+
+.aq-choice.is-correct {
+  border-color: var(--jade-2, var(--jade));
+  background: color-mix(in srgb, var(--jade) 22%, var(--card));
+}
+
+.aq-choice.is-wrong {
+  border-color: color-mix(in srgb, #c45c5c 60%, var(--line));
+  background: color-mix(in srgb, #c45c5c 12%, var(--card));
+}
+
+.aq-choice:disabled {
+  cursor: default;
+}
+
+.aq-feedback {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--jade) 12%, transparent);
+  color: var(--ink-2);
+  font-size: 0.95rem;
+}
+
+.aq-feedback.is-ok {
+  background: color-mix(in srgb, var(--jade) 18%, transparent);
+}
+
+.aq-feedback.is-bad {
+  background: color-mix(in srgb, #c45c5c 12%, transparent);
+}
+
+.aq-next-wrap {
+  margin-top: 16px;
+}
+
+.aq-next-wrap .btn {
+  min-height: 44px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aq-choice {
+    transition: none;
+  }
+}

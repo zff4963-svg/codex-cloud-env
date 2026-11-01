@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="关于星火学院 — 星火·中医师简介" />
+  <title>关于我们 · 星火学院</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../styles.css" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="glow glow-a" aria-hidden="true"></div>
+  <div class="glow glow-b" aria-hidden="true"></div>
+  <div class="spot" id="spot" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span class="brand-text">星火学院</span>
+      </a>
+      <nav class="nav" id="nav" aria-label="主导航">
+        <a href="../learning/index.html">学习中心</a>
+        <a href="../acupuncture/index.html">针灸专区</a>
+        <a href="../medai/index.html">医疗AI</a>
+        <a href="../courseware/index.html">课件馆</a>
+        <a href="../games/index.html">记忆游戏</a>
+        <a href="./index.html">关于</a>
+      </nav>
+      <div class="header-actions">
+        <button type="button" class="theme-toggle" id="themeToggle" aria-label="切换深浅色主题" title="切换主题">
+          <span class="theme-icon theme-icon-sun" aria-hidden="true">☀</span>
+          <span class="theme-icon theme-icon-moon" aria-hidden="true">☾</span>
+        </button>
+        <button type="button" class="burger" id="burger" aria-label="打开菜单" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section">
+      <div class="container">
+        <p class="kicker reveal">ABOUT · 关于我们</p>
+        <h1 class="hero-title reveal">做这件事的人。</h1>
+        <p class="hero-sub reveal">
+          星火学院是面向中医针灸、医疗 + AI 与综合自学的纸感学习空间。内容为教学与自学整理，不构成诊疗建议。
+        </p>
+        <div class="hero-cta reveal">
+          <a class="btn btn-primary" href="../learning/index.html">开始学习</a>
+          <a class="btn btn-ghost" href="../index.html">返回首页</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about">
+      <div class="container about-grid">
+        <div class="about-copy reveal">
+          <p class="kicker">简介</p>
+          <h2 class="section-title">星火 · 中医师</h2>
+          <div class="about-card card">
+            <p class="founder-role">针灸临床与学习工具实践者</p>
+            <h3>把临床疑问变成可复盘的路径</h3>
+            <p>
+              关注针灸在过敏与哮喘相关辨证施治中的学习路径，并把医疗场景里的 AI 用法整理成可复盘的笔记与工作坊材料。
+              本站内容为教学与自学整理，不构成诊疗建议；研究相关表述仅为个人学习方向说明，不作已发表 SCI 或疗效承诺。
+            </p>
+            <p class="about-tagline">先解决一个具体问题，留下一个可复查的结果。</p>
+          </div>
+        </div>
+        <aside class="about-aside card reveal">
+          <p class="card-kicker">给学习者</p>
+          <h3>让学习回到诊室与书桌之间。</h3>
+          <p>你不需要先成为程序员。从一个穴位笔记、一份随访清单、一次提示词复盘开始，就已经在前进。</p>
+          <ul class="aside-list">
+            <li>中医 / 针灸结构化笔记</li>
+            <li>医疗 + AI 安全使用清单</li>
+            <li>综合学习路径与课件回看</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section overview">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="kicker">站点说明</p>
+          <h2 class="section-title">三线并行，一张地图。</h2>
+        </div>
+        <div class="bento">
+          <article class="card reveal">
+            <p class="card-kicker">方向</p>
+            <h3>中医 / 针灸</h3>
+            <p>经络腧穴、手法与哮喘相关辨证学习卡片。</p>
+            <a class="card-link" href="../acupuncture/index.html">进入专区 →</a>
+          </article>
+          <article class="card reveal">
+            <p class="card-kicker">方向</p>
+            <h3>医疗 + AI</h3>
+            <p>工具用法与安全原则：问题、核对、边界。</p>
+            <a class="card-link" href="../medai/index.html">阅读原则 →</a>
+          </article>
+          <article class="card reveal">
+            <p class="card-kicker">方向</p>
+            <h3>综合学习</h3>
+            <p>学习中心路径与课件馆回看清单。</p>
+            <a class="card-link" href="../learning/index.html">打开学习中心 →</a>
+          </article>
+          <article class="card card-wide reveal">
+            <div class="card-wide-body">
+              <p class="card-kicker">声明</p>
+              <h3>静态示例 · 占位内容 · 非医疗建议</h3>
+              <p>请勿将本站材料替代执业医师的个体化判断。引用请注明「星火学院」；第三方材料须另行取得授权。</p>
+            </div>
+            <div class="card-meta">必读</div>
+            <a class="card-link" href="../index.html">回到首页 →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>© 星火学院 · Xinghuo Academy</p>
+      <p class="footer-note">静态示例站点 · 占位内容 · 非医疗建议</p>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>
