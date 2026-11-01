@@ -183,17 +183,26 @@
           " 步" +
           (saved.bestTime != null ? " / " + saved.bestTime + "s" : "");
       }
-      if (G.grantCompletionReward) {
-        var ideal = pairCount;
-        var acc = ideal ? Math.max(0, Math.min(1, (ideal * 2) / Math.max(moves, ideal * 2))) : 1;
-        G.grantCompletionReward(GAME_ID, {
-          score: ideal,
-          maxScore: ideal,
-          accuracy: reviewMode ? acc : (sessionWrong.length === 0 ? 1 : acc),
-          reviewMode: reviewMode,
-          major: "acupuncture"
-        });
+      var ideal = pairCount;
+      var acc = ideal ? Math.max(0, Math.min(1, (ideal * 2) / Math.max(moves, ideal * 2))) : 1;
+      var rewardOpts = {
+        score: ideal,
+        maxScore: ideal,
+        accuracy: reviewMode ? acc : (sessionWrong.length === 0 ? 1 : acc),
+        reviewMode: reviewMode,
+        major: "acupuncture"
+      };
+      var reward = null;
+      try {
+        if (window.XinghuoReward && typeof window.XinghuoReward.grantGameComplete === "function") {
+          reward = window.XinghuoReward.grantGameComplete(GAME_ID, rewardOpts);
+        } else if (G.grantCompletionReward) {
+          reward = G.grantCompletionReward(GAME_ID, rewardOpts);
+        }
+      } catch (rewardErr) {
+        reward = null;
       }
+      if (G.paintXpLine) G.paintXpLine(document.getElementById("xpMsg"), reward);
     }
     if (bestMsg) bestMsg.textContent = bestLine;
 

@@ -207,6 +207,24 @@
     return null;
   }
 
+  /**
+   * Paint the done-panel XP line from a grantGameComplete() result.
+   * Toast stays in the reward kit; this line is the on-page receipt.
+   */
+  function paintXpLine(el, reward) {
+    if (!el) return;
+    if (!reward || typeof reward.grantedXP !== "number") {
+      el.textContent = "";
+      return;
+    }
+    var title = reward.level && reward.level.title ? reward.level.title : "";
+    var text = "本局 +" + reward.grantedXP + " XP";
+    if (title) text += " · " + title;
+    text += " · 连胜 " + (reward.streak || 0) + " 天";
+    if (reward.dailyGoalDone) text += " · 今日目标已达成";
+    el.textContent = text;
+  }
+
   global.XinghuoGames = {
     storageKey: storageKey,
     loadProgress: loadProgress,
@@ -218,6 +236,7 @@
     prefersReducedMotion: prefersReducedMotion,
     setProgressBar: setProgressBar,
     renderReviewList: renderReviewList,
-    grantCompletionReward: grantCompletionReward
+    grantCompletionReward: grantCompletionReward,
+    paintXpLine: paintXpLine
   };
 })(typeof window !== "undefined" ? window : this);

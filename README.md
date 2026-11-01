@@ -49,7 +49,7 @@ python -m http.server 8080
 | `games/anatomy-quiz/` | 西医解剖/生理选择题 |
 | `games/acupoint-drag/` | 针灸取穴拖拽 |
 | `games/prevention-quiz/` | 预防医学 MCQ |
-| `games/tracks/<major>/<module>/` | **教→学→玩** 模块页（每专业 1 个示例） |
+| `games/tracks/<major>/<module>/` | **教→学→玩** 模块页（每专业 2 个：1 个示例 + 1 个短占位） |
 | `docs/curriculum-game-map.md` | 课程→游戏地图（含预防医学第 8 节） |
 | `docs/engagement-reward.md` | XP / 连胜 / 徽章 / 禁则说明 |
 | `about/index.html` | 关于我们 |
@@ -58,11 +58,11 @@ python -m http.server 8080
 
 | 专业 | 示例模块 | 路径 |
 | --- | --- | --- |
-| 中医学 | 方剂学入门 | `games/tracks/tcm/fangji/` |
-| 针灸推拿 | 经络腧穴 | `games/tracks/acupuncture/jingluo/` |
-| 临床医学 | 解剖生理 | `games/tracks/clinical/anatomy/` |
-| 预防医学 | 流行病学入门 | `games/tracks/prevention/epidemiology/` |
-| 中西医结合 | 结合内科对照 | `games/tracks/integrated/neike/` |
+| 中医学 | 方剂学入门 / 中药学入门（占位） | `games/tracks/tcm/fangji/` · `zhongyao/` |
+| 针灸推拿 | 经络腧穴 / 刺法灸法入门（占位） | `games/tracks/acupuncture/jingluo/` · `cifa/` |
+| 临床医学 | 解剖生理 / 诊断学入门（占位） | `games/tracks/clinical/anatomy/` · `diagnostics/` |
+| 预防医学 | 流行病学入门 / 卫生统计学入门（占位） | `games/tracks/prevention/epidemiology/` · `biostat/` |
+| 中西医结合 | 结合内科对照 / 结合外科入门（占位） | `games/tracks/integrated/neike/` · `waike/` |
 
 各游戏数据在对应目录 `data/*.json`（教学占位，**非诊疗建议**）。
 
@@ -70,8 +70,9 @@ python -m http.server 8080
 
 - 游戏进度：`localStorage` 键 `xinghuo-game-<id>`（`games/games-kit.js`）
 - 奖励状态：`xinghuo-reward-v1`（`games/reward-kit.js`：XP、等级、连胜、徽章、每日目标）
-- 五款小游戏通关时，各自的 `finish` / `finishAll` 在 `saveProgress` 之后调用 `XinghuoGames.grantCompletionReward` → `XinghuoReward.grantGameComplete`（含 `major`）
-- 教·学·玩模块页的「读完要点」调用 `XinghuoReward.grantTeachView`（每模块每日最多 1 次，+5 XP）；打开专业 Tab 或模块页会 `markMajorVisit`
+- 五款小游戏只在整局结束（`finish` / `finishAll`）时调用 `window.XinghuoReward.grantGameComplete`（`accuracy` 或 `score`/`maxScore`，以及 `reviewMode`、`major`）。结算面板写「本局 +N XP」；toast 仍由奖励组件弹出
+- 枢纽页用 `loadState` / `getLevel` / `todayKey` 显示奖励摘要芯片（等级称号、XP、连胜、今日目标）
+- 教·学·玩模块页的「读完要点」调用 `XinghuoReward.grantTeachView`（每模块每日最多 1 次，+5 XP）；打开模块页会 `markMajorVisit`
 - 设计说明与「不要做什么」：`docs/engagement-reward.md`
 
 ## 如何改站名 / 文案

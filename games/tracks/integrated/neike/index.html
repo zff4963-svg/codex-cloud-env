@@ -78,6 +78,7 @@
             <a class="btn btn-primary btn-sm" href="../../../anatomy-quiz/index.html">解剖生理闯关（西）→</a>
           </article>
         </div>
+        <p class="track-more">同专业下一模块：<a href="../waike/index.html">结合外科入门 →</a></p>
       </div>
     </section>
   </main>
@@ -96,17 +97,24 @@
     (function () {
       var R = window.XinghuoReward;
       if (!R) return;
+      var MODULE_ID = "int-neike";
       R.markMajorVisit("integrated");
       R.renderHud(document.getElementById("rewardHud"));
       var btn = document.getElementById("btnTeachDone");
-      if (btn) {
-        btn.addEventListener("click", function () {
-          R.grantTeachView("int-neike");
-          R.renderHud(document.getElementById("rewardHud"));
-          btn.disabled = true;
-          btn.textContent = "今日已记过要点";
-        });
+      if (!btn) return;
+      var state = R.loadState();
+      if (state.teachToday && state.teachToday[MODULE_ID]) {
+        btn.disabled = true;
+        btn.textContent = "今日已记过要点";
+        return;
       }
+      btn.addEventListener("click", function () {
+        if (btn.disabled) return;
+        var res = R.grantTeachView(MODULE_ID);
+        R.renderHud(document.getElementById("rewardHud"));
+        btn.disabled = true;
+        btn.textContent = res && res.already ? "今日已记过要点" : "已记下要点 +5 XP";
+      });
     })();
   </script>
 </body>

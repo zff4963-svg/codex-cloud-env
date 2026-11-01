@@ -163,17 +163,9 @@
     return state;
   }
 
-  function celebrate(message) {
+  function celebrate(message, flags) {
     if (!global.document || !global.document.body) return;
-    var reduced = false;
-    try {
-      reduced = !!(
-        global.matchMedia &&
-        global.matchMedia("(prefers-reduced-motion: reduce)").matches
-      );
-    } catch (e) {
-      reduced = false;
-    }
+    flags = flags || {};
     var el = global.document.getElementById("rewardToast");
     if (!el) {
       el = global.document.createElement("div");
@@ -182,11 +174,17 @@
       el.setAttribute("role", "status");
       global.document.body.appendChild(el);
     }
-    el.textContent = message || "";
+    var text = message || "";
+    var levelUp = !!flags.levelUp || text.indexOf("升级") >= 0;
+    var streakMark =
+      !!flags.streak ||
+      text.indexOf("三日不断") >= 0 ||
+      text.indexOf("七日星火") >= 0;
+    el.textContent = text;
+    el.classList.toggle("is-level", levelUp);
+    el.classList.toggle("is-streak", streakMark);
+    el.classList.toggle("is-celebrate", levelUp || streakMark);
     el.classList.add("is-pop");
-    if (reduced) {
-      /* still show, skip fancy motion via CSS */
-    }
     if (global.clearTimeout) global.clearTimeout(el._hideTimer);
     el._hideTimer = global.setTimeout
       ? global.setTimeout(function () {
@@ -286,7 +284,10 @@
     for (bi = 0; bi < unlocked.length; bi++) {
       msgs.push("徽章「" + unlocked[bi].name + "」");
     }
-    celebrate(msgs.join(" · "));
+    celebrate(msgs.join(" · "), {
+      levelUp: levelInfo.level > prevLevel,
+      streak: isFirstToday && (state.streak || 0) >= 2
+    });
 
     return {
       grantedXP: grantedXP,

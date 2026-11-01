@@ -62,6 +62,7 @@
     <section class="section" style="padding-top:0">
       <div class="container">
         <div class="game-disclaimer reveal">教学占位 · 非诊疗建议 · 进度保存在本机 localStorage · 详见 docs/engagement-reward.md</div>
+        <div id="rewardSummary" class="reward-summary-chip reveal" aria-live="polite">初学星火 · Lv.1 · XP 0 · 连胜 0 天 · 今日目标 0/50 XP</div>
         <div id="rewardHud" class="reveal"></div>
       </div>
     </section>
@@ -97,10 +98,10 @@
               <a class="card-link" href="formula-flash/index.html">直接开玩 →</a>
             </article>
             <article class="card">
-              <p class="card-kicker">占位</p>
-              <h3>中基 / 中诊（后续）</h3>
-              <p>课程地图已列 P0；模块页可按 tracks/tcm/ 扩展。</p>
-              <a class="card-link" href="../docs/curriculum-game-map.md">查看课程地图 →</a>
+              <p class="card-kicker">P0 · 中药 · 占位</p>
+              <h3>中药学入门</h3>
+              <p>四气五味归经短占位；练习先接到方剂闪卡。</p>
+              <a class="card-link" href="tracks/tcm/zhongyao/index.html">打开教·学·玩 →</a>
             </article>
           </div>
         </div>
@@ -125,6 +126,12 @@
               <p>标签拖进定位槽位。</p>
               <a class="card-link" href="acupoint-drag/index.html">开始拖拽 →</a>
             </article>
+            <article class="card">
+              <p class="card-kicker">P0 · 刺灸 · 占位</p>
+              <h3>刺法灸法入门</h3>
+              <p>只记名称与禁忌线索；操作仍以带教为准。</p>
+              <a class="card-link" href="tracks/acupuncture/cifa/index.html">打开教·学·玩 →</a>
+            </article>
           </div>
         </div>
 
@@ -143,10 +150,10 @@
               <a class="card-link" href="anatomy-quiz/index.html">开始闯关 →</a>
             </article>
             <article class="card">
-              <p class="card-kicker">占位</p>
-              <h3>诊断学 / 内科（后续）</h3>
-              <p>病例选择题优先；见课程地图模块 G。</p>
-              <a class="card-link" href="../docs/curriculum-game-map.md">查看课程地图 →</a>
+              <p class="card-kicker">P0 · 诊断 · 占位</p>
+              <h3>诊断学入门</h3>
+              <p>问诊、查体、辅检三条线的短占位，练习先接解剖生理闯关。</p>
+              <a class="card-link" href="tracks/clinical/diagnostics/index.html">打开教·学·玩 →</a>
             </article>
           </div>
         </div>
@@ -164,6 +171,12 @@
               <h3>预防医学闯关</h3>
               <p>流病 / 卫统 / 三卫 / 健教等 12 题。</p>
               <a class="card-link" href="prevention-quiz/index.html">开始闯关 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">P0 · 卫统 · 占位</p>
+              <h3>卫生统计学入门</h3>
+              <p>先认资料类型再选指标。练习接到预防医学测验。</p>
+              <a class="card-link" href="tracks/prevention/biostat/index.html">打开教·学·玩 →</a>
             </article>
             <article class="card">
               <p class="card-kicker">地图</p>
@@ -193,6 +206,12 @@
               <h3>解剖生理闯关</h3>
               <p>生物医学词汇底座。</p>
               <a class="card-link" href="anatomy-quiz/index.html">打开闯关 →</a>
+            </article>
+            <article class="card">
+              <p class="card-kicker">P1 · 外科 · 占位</p>
+              <h3>结合外科入门</h3>
+              <p>先定位再对照证候。短占位，不是手术或处方建议。</p>
+              <a class="card-link" href="tracks/integrated/waike/index.html">打开教·学·玩 →</a>
             </article>
           </div>
         </div>
@@ -275,7 +294,34 @@
   <script>
     (function () {
       var R = window.XinghuoReward;
+      function renderSummaryChip() {
+        var el = document.getElementById("rewardSummary");
+        if (!el || !R || !R.loadState || !R.getLevel) return;
+        var state = R.loadState();
+        var lv = R.getLevel(typeof state.xp === "number" ? state.xp : 0);
+        var today = typeof R.todayKey === "function" ? R.todayKey() : "";
+        var sameDay = !today || state.dailyDate === today;
+        var dailyXp = sameDay ? state.dailyXp || 0 : 0;
+        var goal = sameDay && state.dailyGoalDone ? "今日目标已达成" : "今日目标 " + dailyXp + "/50 XP";
+        el.textContent = "";
+        var title = document.createElement("strong");
+        title.textContent = lv.title || "初学星火";
+        el.appendChild(title);
+        el.appendChild(
+          document.createTextNode(
+            " · Lv." +
+              lv.level +
+              " · XP " +
+              (state.xp || 0) +
+              " · 连胜 " +
+              (state.streak || 0) +
+              " 天 · " +
+              goal
+          )
+        );
+      }
       if (R) {
+        renderSummaryChip();
         R.renderHud(document.getElementById("rewardHud"));
         var wall = document.getElementById("badgeWall");
         if (wall) {
